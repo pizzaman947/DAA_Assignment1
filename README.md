@@ -57,4 +57,4 @@ The project also includes:
 Example command:
 
 ```bash
-java -jar target/assignment1-1.0-SNAPSHOT-shaded.jar --algo mergesort --n 100000 --runs 3 --out target/results.csv
+java -jar target/assignment1-1.0-SNAPSHOT.jar --algo mergesort --n 100000 --runs 3 --out target/results.csv
