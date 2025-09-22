@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 public class Runner {
     public static void main(String[] args) throws Exception {
-        String algo = "quicksort";
+        String algo = "mergesort";
         int n = 10000;
         int runs = 3;
 
