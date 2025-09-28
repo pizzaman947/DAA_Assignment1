@@ -21,8 +21,9 @@ public class Runner {
 
         try (PrintWriter pw = new PrintWriter(new FileWriter(outFile, true))) {
             if (writeHeader) {
-                pw.println("algo,n,run,time_ns,maxDepth,comparisons,swaps,allocations");
+                pw.println("algo,n,run,time_ns,time_ms,maxDepth,comparisons,swaps,allocations");
             }
+
 
             for (int run = 1; run <= runs; run++) {
                 Metrics m = new Metrics();
@@ -63,9 +64,11 @@ public class Runner {
                     return;
                 }
 
-                long time = end - start;
-                String line = String.format("%s,%d,%d,%d,%d,%d,%d,%d",
-                        algo, n, run, time, m.maxDepth, m.comparisons, m.swaps, m.allocations);
+                long durationNs = end - start;
+                long durationMs = durationNs / 1_000_000;
+                String line = String.format("%s,%d,%d,%d,%d,%d,%d,%d,%d",
+                        algo, n, run, durationNs, durationMs, m.maxDepth, m.comparisons, m.swaps, m.allocations);
+
 
                 System.out.println(line);
 
