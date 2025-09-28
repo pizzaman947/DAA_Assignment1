@@ -13,10 +13,38 @@ import java.util.Arrays;
 public class Runner {
     public static void main(String[] args) throws Exception {
         String algo = "closest";
-        int n = 50000;
+        int n = 10000;
         int runs = 3;
-
-        File outFile = new File("target/results.csv");
+        String outFilePath = "target/results.csv";
+        for (int i = 0; i < args.length; i++) {
+            switch (args[i]) {
+                case "--algo":
+                    if (i + 1 < args.length) {
+                        algo = args[i + 1];
+                        i++;
+                    }
+                    break;
+                case "--n":
+                    if (i + 1 < args.length) {
+                        n = Integer.parseInt(args[i + 1]);
+                        i++;
+                    }
+                    break;
+                case "--runs":
+                    if (i + 1 < args.length) {
+                        runs = Integer.parseInt(args[i + 1]);
+                        i++;
+                    }
+                    break;
+                case "--out":
+                    if (i + 1 < args.length) {
+                        outFilePath = args[i + 1];
+                        i++;
+                    }
+                    break;
+            }
+        }
+        File outFile = new File(outFilePath);
         boolean writeHeader = !outFile.exists();
 
         try (PrintWriter pw = new PrintWriter(new FileWriter(outFile, true))) {
