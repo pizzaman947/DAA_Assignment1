@@ -52,6 +52,16 @@ The project also includes:
 ---
 
 ## Experiments & Metrics
+## Algorithms graphs
+### Merge Sort
+![Merge Sort](images/mergesort.png)
+### Quick Sort
+![Quick Sort](images/quicksort.png)
+### Deterministic Select
+![Deterministic Select](images/select.png)
+### Closest Pair
+![Closest Pair](images/closest.png)
+
 
 ### Running the Runner
 Example command:
@@ -60,3 +70,5 @@ Example command:
 java -jar target/assignment1-1.0-SNAPSHOT.jar --algo mergesort --n 100000 --runs 3 --out target/results.csv
 ```
 Or you can simply run Runner.java through any IDE and choose any algorithm to test.
+
+

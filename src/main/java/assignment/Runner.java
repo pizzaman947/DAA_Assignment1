@@ -12,8 +12,8 @@ import java.util.Arrays;
 
 public class Runner {
     public static void main(String[] args) throws Exception {
-        String algo = "mergesort";
-        int n = 10000;
+        String algo = "closest";
+        int n = 50000;
         int runs = 3;
 
         File outFile = new File("target/results.csv");
@@ -65,9 +65,10 @@ public class Runner {
                 }
 
                 long durationNs = end - start;
-                long durationMs = durationNs / 1_000_000;
-                String line = String.format("%s,%d,%d,%d,%d,%d,%d,%d,%d",
+                double durationMs = durationNs / 1_000_000.0;
+                String line = String.format(java.util.Locale.US, "%s,%d,%d,%d,%.6f,%d,%d,%d,%d",
                         algo, n, run, durationNs, durationMs, m.maxDepth, m.comparisons, m.swaps, m.allocations);
+
 
 
                 System.out.println(line);
